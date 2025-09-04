@@ -1,0 +1,7 @@
+﻿services:
+  uralairreporter.api:
+    image: uralairreporter.api
+    build:
+      context: .
+      dockerfile: UralAirReporter.Api/Dockerfile
+
