@@ -1,20 +1,32 @@
 import 'package:flutter/material.dart';
+import 'package:ural_air_reporter/pages/login_page.dart';
+import 'package:ural_air_reporter/pages/settings_page.dart';
+import 'package:ural_air_reporter/pages/table_page.dart';
+
+import 'models/app_routes.dart';
 
 void main() {
-  runApp(const MainApp());
+  runApp(const UralAirReporterApp());
 }
 
-class MainApp extends StatelessWidget {
-  const MainApp({super.key});
+class UralAirReporterApp extends StatelessWidget {
+  const UralAirReporterApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: Text('Hello World!'),
-        ),
+    return MaterialApp(
+      title: 'UralAirReporter',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+        useMaterial3: true,
       ),
+      initialRoute: AppRoutes.login,
+      routes: {
+        AppRoutes.login: (context) => const LoginPage(),
+        AppRoutes.table: (context) => const TablePage(),
+        AppRoutes.settings: (context) => const SettingsPage(),
+      },
+      debugShowCheckedModeBanner: false,
     );
   }
 }
